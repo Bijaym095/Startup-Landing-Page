@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .section-spacing {
+    @apply py-[30px] md:py-[50px] lg:py-[80px] border border-red-500;
+  }
+}
