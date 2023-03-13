@@ -1,27 +1,40 @@
 import PropTypes from "prop-types";
+import { forwardRef } from "react";
 
-const Row = ({ className, children }) => {
+const Row = forwardRef((props, ref) => {
+  const { className, children, ...rest } = props;
+
   return (
-    <div className={`flex flex-wrap -mx-5 ${className ? className : ""}`}>
+    <div
+      {...rest}
+      className={`-mx-4 flex flex-wrap ${className ? className : ""}`}
+      ref={ref}
+    >
       {children}
     </div>
   );
-};
+});
 
-export const RowItem = ({ className, children }) => {
+export const RowItem = forwardRef((props, ref) => {
+  const { className, children, ...rest } = props;
+
   return (
-    <div className={`shrink-0 px-5 ${className ? className : ""}`}>
+    <div
+      {...rest}
+      className={`shrink-0 px-4 ${className ? className : ""}`}
+      ref={ref}
+    >
       {children}
     </div>
   );
-};
+});
 
-Row.proptypes = {
+Row.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
-RowItem.proptypes = {
+RowItem.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };

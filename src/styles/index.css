@@ -1,9 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-body text-base leading-[1.4];
+  }
+
+  p {
+    @apply text-[#959cb1];
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[540px] sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1140px];
+  }
+
   .section-spacing {
-    @apply py-[30px] md:py-[50px] lg:py-[80px] border border-red-500;
+    @apply px-4 py-[40px] sm:py-[80px] sm:px-8 md:py-[120px];
+  }
+
+  .section-title {
+    @apply text-[2.074rem] font-bold dark:text-white;
   }
 }
