@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
+import tw from "twin.macro";
+import clsx from "clsx";
 
 import { useLocation } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
-import clsx from "clsx";
 
 import { CiDark, CiLight } from "react-icons/ci";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import Container from "../../common/Container";
 import Button, { NavLinkButton } from "../../common/Button";
+import Dropdown from "../../common/Dropdown";
+
+const ButtonContainer = tw.div`flex items-center space-x-2 lg:space-x-4`;
+
+const dropdownLinks = [
+  { to: "/about", label: "About Page" },
+  { to: "/contact", label: "Contact Page" },
+  { to: "/", label: "Blog Grid Page" },
+  { to: "/signin", label: "Sign in" },
+];
 
 const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
@@ -68,28 +79,28 @@ const Navbar = () => {
   return (
     <nav
       className={`
-      ${isSticky ? "sticky top-0 z-50" : ""}
-      ${
-        isSticky
-          ? "bg-[#ffffffcc] drop-shadow-lg backdrop-blur dark:bg-[#4a6cf733]"
-          : "bg-transparent dark:bg-darkblue"
-      }
-       duration-200 ease-linear
+        ${isSticky ? "sticky top-0 z-50" : ""}
+        ${
+          isSticky
+            ? "bg-[#ffffffcc] drop-shadow-lg backdrop-blur dark:bg-[#4a6cf733]"
+            : "bg-transparent dark:bg-darkblue"
+        }
+         duration-200 ease-linear
 `}
     >
       <Container
         className={`
-      flex items-center justify-between gap-4
-      py-4 px-4
-      sm:px-8`}
+            flex items-center justify-between gap-4
+            py-4 px-4
+            sm:px-8`}
       >
         {/* logo */}
         <NavLink
           to="/"
           className={`
-      inline-flex items-center
-      font-medium text-gray-900
-     dark:text-white`}
+                 inline-flex items-center
+                 font-medium text-gray-900
+                dark:text-white`}
         >
           <span className="text-xl">Startup</span>
         </NavLink>
@@ -100,7 +111,7 @@ const Navbar = () => {
           className={clsx(
             "fixed z-[99] md:static",
             `inset-0 ${toggleNav ? "left-0" : "left-[-250px]"}`,
-            "e h-screen w-[250px] bg-blue-500 py-[48px] px-[24px] md:h-full",
+            "h-screen w-[250px] bg-blue-500 py-[48px] px-[24px] md:h-full",
             "duration-300 ease-in-out",
             "text-white dark:text-white md:bg-transparent md:py-0 md:px-0 md:text-black"
           )}
@@ -125,22 +136,22 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link tabIndex={toggleNav ? 0 : -1} to="support">
+              <Link tabIndex={toggleNav ? 0 : -1} to="/#support">
                 Support
               </Link>
             </li>
 
             <li>
-              <Link to="/#contact" tabIndex={toggleNav ? 0 : -1}>
-                Pages
-              </Link>
+              <Dropdown
+                tabIndex={toggleNav ? 0 : 1}
+                button="Pages"
+                links={dropdownLinks}
+              />
             </li>
           </ul>
         </div>
 
-        {/* nav-cta */}
-
-        <div className="flex items-center space-x-2 lg:space-x-4">
+        <ButtonContainer>
           <NavLinkButton
             to="signin"
             size="sm"
@@ -177,9 +188,7 @@ const Navbar = () => {
           >
             {toggleNav ? <FaTimes /> : <FaBars />}
           </Button>
-        </div>
-
-        {/* nav-cta */}
+        </ButtonContainer>
       </Container>
     </nav>
   );

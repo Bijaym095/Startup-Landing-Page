@@ -1,3 +1,5 @@
+import tw from "twin.macro";
+
 import { useState, useEffect } from "react";
 
 import { NavLink, Link } from "react-router-dom";
@@ -17,8 +19,9 @@ import Button from "../../common/Button";
 const footerLinksHoverClass =
   "transition-colors duration-300 hover:text-[#4a6cf7]";
 
-const footerLinksTitleClass =
-  "mb-4 text-[1.25rem] font-bold text-black dark:text-white md:mb-8";
+const FooterLinkTitle = tw.h5`mb-4 text-[1.25rem] font-bold text-black dark:text-white md:mb-8`;
+
+const CopyrightContainer = tw.div`bg-[#4a6cf71a] dark:bg-[#141C51]`;
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,13 +60,13 @@ const Footer = () => {
          sm:px-8`}
       >
         <Row
-          className="flex-col gap-8 sm:flex-row md:gap-0"
+          className="flex-col gap-8 md:flex-row md:gap-0"
           data-aos="fade-up"
           data-aos-once="true"
         >
           {/* social-links */}
 
-          <RowItem className="w-full sm:w-6/12 lg:w-3/12">
+          <RowItem className="w-full sm:mb-6 sm:w-6/12 lg:mb-0 lg:w-3/12">
             <NavLink
               to="/"
               className="mb-4 inline-block text-black dark:text-white md:mb-8"
@@ -121,7 +124,7 @@ const Footer = () => {
           {/* useful-links */}
 
           <RowItem className="w-full sm:w-6/12  lg:w-3/12 ">
-            <h5 className={`${footerLinksTitleClass}`}>Useful Links</h5>
+            <FooterLinkTitle>Useful Links</FooterLinkTitle>
 
             <ul className="space-y-2">
               <li>
@@ -147,7 +150,7 @@ const Footer = () => {
           {/* terms */}
 
           <RowItem className="w-full sm:w-6/12  lg:w-3/12">
-            <h5 className={`${footerLinksTitleClass}`}>Terms</h5>
+            <FooterLinkTitle>Terms</FooterLinkTitle>
 
             <ul className="space-y-2">
               <li>
@@ -179,7 +182,7 @@ const Footer = () => {
           {/* support & help */}
 
           <RowItem className="w-full sm:w-6/12  lg:w-3/12">
-            <h5 className={`${footerLinksTitleClass}`}>Support & Help</h5>
+            <FooterLinkTitle>Support & Help</FooterLinkTitle>
 
             <ul className="space-y-2">
               <li>
@@ -207,15 +210,11 @@ const Footer = () => {
         </Row>
       </Container>
 
-      {/* copyright-text */}
-
-      <div className="bg-[#4a6cf71a] dark:bg-[#141C51]">
+      <CopyrightContainer>
         <Container className="px-4 py-8 text-center sm:px-8">
           <p className="dark:text-white">&copy; Crafted by UIdeck for You!</p>
         </Container>
-      </div>
-
-      {/* copyright-text */}
+      </CopyrightContainer>
 
       {/* scroll to top button */}
 

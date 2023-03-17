@@ -1,6 +1,10 @@
+import tw from "twin.macro";
+
 import { LinkButton } from "../../common/Button";
 import Container from "../../common/Container";
 import SectionTitleContainer from "../../common/SectionTitleContainer";
+
+const ButtonContainer = tw.div`space-x-4 md:space-x-6`;
 
 const Hero = () => {
   return (
@@ -26,9 +30,7 @@ const Hero = () => {
             everything you need!
           </p>
 
-          {/* btn-container */}
-
-          <div className="space-x-4 md:space-x-6">
+          <ButtonContainer>
             <LinkButton variant="primary" rounded="lg">
               Get Started
             </LinkButton>
@@ -36,9 +38,7 @@ const Hero = () => {
             <LinkButton variant="secondary" rounded="lg">
               Learn More
             </LinkButton>
-          </div>
-
-          {/* btn-container */}
+          </ButtonContainer>
         </SectionTitleContainer>
       </Container>
     </section>

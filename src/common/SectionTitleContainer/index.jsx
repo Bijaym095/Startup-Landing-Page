@@ -8,7 +8,9 @@ const SectionTitleContainer = forwardRef((props, ref) => {
     <div
       {...rest}
       ref={ref}
-      className={`mx-auto max-w-[570px] ${className ? className : ""}`}
+      className={`mx-auto max-w-[570px] text-center ${
+        className ? className : ""
+      }`}
     >
       {children}
     </div>

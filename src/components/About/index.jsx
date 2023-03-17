@@ -25,11 +25,11 @@ const About = () => {
             data-aos-once="true"
             className="mb-10 w-full sm:mb-0 md:w-6/12"
           >
-            <h2 className="mb-2 text-[1.953rem] font-bold dark:text-white">
+            <h2 className="mb-4 text-[1.953rem] font-bold dark:text-white">
               Crafted for Startup, SaaS and Business Sites.
             </h2>
 
-            <p className="mb-8 font-medium">
+            <p className="mb-10 font-medium">
               The main ‘thrust’ is to focus on educating attendees on how to
               best protect highly vulnerable business applications with
               interactive panel discussions and roundtables.

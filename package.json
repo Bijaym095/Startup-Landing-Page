@@ -13,11 +13,14 @@
     "aos": "^2.3.4",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
+    "prettier-plugin-tailwindcss": "^0.2.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-router-dom": "^6.8.2"
+    "react-router-dom": "^6.8.2",
+    "styled-components": "^5.3.9",
+    "twin.macro": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
@@ -25,8 +28,16 @@
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
-    "prettier-plugin-tailwindcss": "^0.2.4",
     "tailwindcss": "^3.2.7",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vite-plugin-babel-macros": "^1.0.6"
+  },
+  "babelMacros": {
+    "twin": {
+      "styled": {
+        "import": "default",
+        "from": "styled-components"
+      }
+    }
   }
 }

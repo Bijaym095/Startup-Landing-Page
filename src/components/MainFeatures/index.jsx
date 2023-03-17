@@ -1,3 +1,4 @@
+import tw from "twin.macro";
 import clsx from "clsx";
 
 import Container from "../../common/Container";
@@ -117,12 +118,16 @@ const featuresInfo = [
   },
 ];
 
+const FeatureIconContainer = tw.span`
+inline-grid place-content-center
+h-[70px] w-[70px]
+mb-8 rounded-lg bg-[#4a6cf71a] p-2
+`;
+const FeatureTitle = tw.h4`mb-4 text-[1.563rem] font-bold  dark:text-white`;
+
 const MainFeatures = () => {
   return (
-    <section
-      id="about"
-      className="main-features section-spacing bg-[#F9FAFF] dark:bg-[#0B113A]"
-    >
+    <section className="main-features section-spacing bg-[#F9FAFF] dark:bg-[#0B113A]">
       <Container>
         <SectionTitleContainer
           data-aos="fade-up"
@@ -132,7 +137,7 @@ const MainFeatures = () => {
         >
           <h2 className="section-title mb-2 dark:text-white">Main Features</h2>
 
-          <p className="text-[1.2rem]">
+          <p>
             There are many variations of passages of Lorem Ipsum available but
             the majority have suffered alteration in some form.
           </p>
@@ -149,19 +154,9 @@ const MainFeatures = () => {
                 data-aos-once="true"
                 className="mb-12 h-full"
               >
-                <span
-                  className={clsx(
-                    "inline-grid place-content-center",
-                    "h-[70px] w-[70px]",
-                    "mb-8 rounded-lg bg-[#4a6cf71a] p-2"
-                  )}
-                >
-                  {feature.icon}
-                </span>
+                <FeatureIconContainer>{feature.icon}</FeatureIconContainer>
 
-                <h4 className="mb-4 text-[1.563rem] font-bold  dark:text-white">
-                  {feature.title}
-                </h4>
+                <FeatureTitle>{feature.title}</FeatureTitle>
 
                 <p>{feature.desc}</p>
               </article>

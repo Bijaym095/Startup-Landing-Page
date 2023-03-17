@@ -1,3 +1,5 @@
+import tw from "twin.macro";
+
 import { AiFillStar } from "react-icons/ai";
 
 import Container from "../../common/Container";
@@ -57,46 +59,59 @@ const reviewsInfo = [
   },
 ];
 
+const AuthorName = tw.h5`
+  pl-4 text-[1.25rem] font-bold text-black dark:text-white`;
+
+const AuthorPosition = tw.span`block text-[0.8rem] font-normal text-[#959CB1]`;
+
+const AuthorWrapper = tw.div`flex`;
+
+const ReviewRating = tw.div`mb-6 inline-flex gap-2`;
+
+const ReviewsDesc = tw.div`dark:text-white`;
+
+const Divider = tw.span`my-10 block h-[0.5px] bg-[#959cb1]`;
+
 const Reviews = () => {
   return (
     <section className="section-spacing bg-[#F9FAFF] dark:bg-[#0B113A]">
       <Container>
-        <SectionTitleContainer className="mb-12 text-center">
+        <SectionTitleContainer className="mb-14 text-center">
           <h2 className="section-title mb-2">What Our Users Says</h2>
-          <p className="text-[1.2rem]">
+          <p>
             There are many variations of passages of Lorem Ipsum available but
             the majority have suffered alteration in some form.
           </p>
         </SectionTitleContainer>
 
-        <Row className="">
+        <Row>
           {reviewsInfo.map((review, index) => (
             <RowItem
               key={index}
               className="mb-8 w-full sm:w-6/12 lg:mb-0 lg:w-4/12"
             >
-              <article className="h-full rounded-md bg-white py-8 px-4 text-[#959CB1] dark:bg-[#1d2144]">
-                <span className="mb-4 inline-flex gap-2">{review.ratings}</span>
+              <article
+                className={`
+                  h-full rounded-md bg-white py-8 px-4
+                 text-[#959CB1] shadow-lg
+                 dark:bg-[#1d2144]`}
+              >
+                <ReviewRating>{review.ratings}</ReviewRating>
 
-                <em className="block text-[1.2rem] dark:text-white">
-                  "{review.desc}"
-                </em>
+                <ReviewsDesc>{review.desc}</ReviewsDesc>
 
-                <span className="my-6 block h-[0.5px] bg-[#959cb1]"></span>
+                <Divider></Divider>
 
-                <div className="flex">
+                <AuthorWrapper>
                   <picture>
                     <img src={review.authorImg} alt="" />
                   </picture>
 
-                  <h5 className="pl-4 text-[1.25rem] font-bold text-black dark:text-white">
+                  <AuthorName>
                     {review.authorName}
-
-                    <span className="block text-[0.8rem] font-normal text-[#959CB1]">
-                      {review.authorPosition}
-                    </span>
-                  </h5>
-                </div>
+                    <AuthorPosition>{review.authorPosition}</AuthorPosition>
+                  </AuthorName>
+                </AuthorWrapper>
               </article>
             </RowItem>
           ))}
