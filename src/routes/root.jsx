@@ -7,15 +7,12 @@ import "../../node_modules/aos/dist/aos.css";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 
-// import DarkModeState from "../context/DarkMode/DarkModeState";
-
 const Root = () => {
   useEffect(() => {
     Aos.init();
   }, []);
 
   return (
-    // <DarkModeState>
     <>
       <Navbar />
       <main>
@@ -23,7 +20,6 @@ const Root = () => {
       </main>
       <Footer />
     </>
-    // </DarkModeState>
   );
 };
 

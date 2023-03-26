@@ -17,7 +17,7 @@ const Support = () => {
     >
       <Container>
         <Row className="gap-8 md:gap-0">
-          <RowItem className="w-full lg:w-8/12">
+          <RowItem className="mb-2 w-full lg:mb-0 lg:w-8/12">
             <TicketFormContainer>
               <h4 className="mb-2 text-[1.563rem] font-bold">
                 Need Help? Open a Ticket

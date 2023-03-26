@@ -12,13 +12,13 @@ import Container from "../../common/Container";
 import Button, { NavLinkButton } from "../../common/Button";
 import Dropdown from "../../common/Dropdown";
 
-const ButtonContainer = tw.div`flex items-center space-x-2 lg:space-x-4`;
+const ButtonContainer = tw.div`flex items-center space-x-1 xl:space-x-4`;
 
 const dropdownLinks = [
   { to: "/about", label: "About Page" },
   { to: "/contact", label: "Contact Page" },
   { to: "/", label: "Blog Grid Page" },
-  { to: "/signin", label: "Sign in" },
+  { to: "/", label: "Sign in" },
 ];
 
 const Navbar = () => {
@@ -34,7 +34,6 @@ const Navbar = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  // Destructure the `hash` property from the `useLocation()` hook
   const { hash } = useLocation();
 
   //handling Navigation if url contains id
@@ -116,7 +115,7 @@ const Navbar = () => {
             "text-white dark:text-white md:bg-transparent md:py-0 md:px-0 md:text-black"
           )}
         >
-          <ul className="space-y-4 md:flex md:space-y-0 md:space-x-4">
+          <ul className="space-y-4 md:flex md:space-y-0 md:space-x-2 lg:space-x-4">
             <li>
               <Link to="/#hero" tabIndex={toggleNav ? 0 : -1}>
                 Home
@@ -156,7 +155,7 @@ const Navbar = () => {
             to="signin"
             size="sm"
             rounded="lg"
-            className="hidden bg-transparent sm:block"
+            className="hidden bg-white shadow-lg sm:block"
           >
             Sign In
           </NavLinkButton>
@@ -166,14 +165,14 @@ const Navbar = () => {
             variant="primary"
             size="sm"
             rounded="lg"
-            className="hidden sm:block"
+            className="hidden shadow-lg sm:block"
           >
             SignUp
           </NavLinkButton>
 
           <Button
             onClick={handleDarkMode}
-            className="bg-transparent text-2xl font-bold text-black"
+            className="bg-white text-2xl font-bold text-black shadow-lg"
             rounded="lg"
             size="sm"
           >
@@ -183,7 +182,7 @@ const Navbar = () => {
           <Button
             size="sm"
             rounded="lg"
-            className=" md:hidden"
+            className="shadow-lg md:hidden"
             onClick={handleToggleNav}
           >
             {toggleNav ? <FaTimes /> : <FaBars />}
