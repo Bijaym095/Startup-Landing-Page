@@ -1,8 +1,13 @@
-// import React from "react";
+import { useEffect } from "react";
+
 import Container from "../common/Container";
 import Button from "../common/Button";
 
 const NotFound = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="section-spacing dark:bg-darkblue">
       <Container className="text-center">

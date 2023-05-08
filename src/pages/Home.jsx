@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Hero from "../components/Hero";
 import MainFeatures from "../components/MainFeatures";
 import HelpVideo from "../components/HelpVideo";
@@ -10,6 +12,10 @@ import Pricing from "../components/Pricing";
 import Support from "../components/Support";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Hero />
